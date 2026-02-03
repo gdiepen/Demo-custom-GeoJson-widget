@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Project AimmsVersion="25.9.2.6 unicode x64" ProjectUUID="FA9C24FE-4912-4DD6-BF74-ABE882F156B2">
+	<ModelFileName>Demo custom GeoJson widget.ams</ModelFileName>
+	<AutoSaveAndBackup>
+		<DataBackup AtRegularInterval="true" EveryNMinutes="15" NumBackupsDatedToday="3" NumDaysBeforeToday="3" />
+	</AutoSaveAndBackup>
+</Project>

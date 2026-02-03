@@ -1,0 +1,295 @@
+{
+  "application": {
+    "aimms.widget.type": {
+      "literal": "application"
+    },
+    "browser.language": {
+      "aimms": {
+        "contents": [
+          "webui::ClientBrowserLanguage"
+        ]
+      }
+    },
+    "browser.name": {
+      "aimms": {
+        "contents": [
+          "webui::ClientBrowserName"
+        ]
+      }
+    },
+    "browser.timezone": {
+      "aimms": {
+        "contents": [
+          "webui::BrowserTimeZone"
+        ]
+      }
+    },
+    "ignoredst": {
+      "aimms": {
+        "contents": [
+          "webui::IgnoreDST"
+        ]
+      }
+    },
+    "pages": {
+      "literal": {
+        "name": "root",
+        "slug": "root",
+        "children": [
+          {
+            "name": "Main Project",
+            "slug": "main_project",
+            "children": [
+              {
+                "name": "Demo custom widgets",
+                "slug": "home",
+                "type": "pagev2-grid",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "theme.classic": {
+      "literal": "NOT_ALLOWED"
+    },
+    "timezone": {
+      "aimms": {
+        "contents": [
+          "webui::DisplayTimeZone"
+        ]
+      }
+    }
+  },
+  "version": "4.67.0",
+  "pages/home": {
+    "aimms.widget.type": {
+      "literal": "pagev2-grid"
+    },
+    "bindings": {
+      "literal": [
+        {
+          "widgetUri": "province data",
+          "gridArea": "area-c",
+          "dndId": "area-cprovince data0"
+        },
+        {
+          "widgetUri": "overview netherlands",
+          "gridArea": "area-a",
+          "dndId": "area-aoverview netherlands1"
+        },
+        {
+          "widgetUri": "province selector",
+          "gridArea": "area-b",
+          "dndId": "area-bprovince selector3"
+        },
+        {
+          "widgetUri": "text",
+          "gridArea": "area-b",
+          "dndId": "area-btext2"
+        }
+      ]
+    },
+    "layoutId": {
+      "literal": "Layout10"
+    },
+    "widgets": {
+      "literal": [
+        {
+          "uri": "overview netherlands",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "province selector",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "province data",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "text",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        }
+      ]
+    }
+  },
+  "widgets/overview netherlands": {
+    "aimms.widget.type": {
+      "literal": "D3 GeoJSON"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "pProvinceInhabitants"
+        ]
+      }
+    },
+    "geojson.feature_key": {
+      "literal": "properties###statnaam"
+    },
+    "geojson.file": {
+      "aimms": {
+        "contents": [
+          "spProvincesGeoJson"
+        ]
+      }
+    },
+    "name": {
+      "literal": "overview netherlands"
+    },
+    "store_selection": {
+      "aimms": {
+        "contents": [
+          "epSelectedProvince"
+        ],
+        "slices": []
+      }
+    },
+    "title": {
+      "literal": "Overview provinces The Netherlands - Click on a province to select it"
+    },
+    "tooltip.text": {
+      "aimms": {
+        "contents": [
+          "spProvinceTooltip"
+        ],
+        "slices": [
+          {
+            "identifier": "spProvinceTooltip",
+            "slice": [
+              {
+                "index": "iProvince",
+                "type": "free",
+                "value": "iProvince"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "widgets/province selector": {
+    "aimms.widget.type": {
+      "literal": "selectionbox-v2"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "epSelectedProvince"
+        ],
+        "slices": []
+      }
+    },
+    "name": {
+      "literal": "province selector"
+    }
+  },
+  "widgets/province data": {
+    "aimms.widget.type": {
+      "literal": "table"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "spProvinceCapital",
+          "pProvinceInhabitants"
+        ],
+        "prefix": "aimms",
+        "slices": [
+          {
+            "identifier": "pProvinceInhabitants",
+            "slice": [
+              {
+                "index": "iProvince",
+                "type": "element-parameter",
+                "value": "epSelectedProvince"
+              }
+            ]
+          },
+          {
+            "identifier": "spProvinceCapital",
+            "slice": [
+              {
+                "index": "iProvince",
+                "type": "element-parameter",
+                "value": "epSelectedProvince"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "contents.partition": {
+      "literal": {
+        "rowHeader": [
+          "<IDENTIFIER-SET>"
+        ],
+        "colHeader": [
+          "iProvince"
+        ],
+        "aggregated": []
+      }
+    },
+    "custom.column.widths": {
+      "literal": [
+        {
+          "type": "colHeader",
+          "colKey": {},
+          "width": 31.27
+        },
+        {
+          "type": "rowHeader",
+          "colKey": "<IDENTIFIER-SET>",
+          "width": 33.02
+        }
+      ]
+    },
+    "name": {
+      "literal": "province data"
+    },
+    "title": {
+      "aimms": {
+        "contents": [
+          "spTableHeader"
+        ],
+        "slices": []
+      }
+    },
+    "views": {
+      "literal": {}
+    },
+    "views.__display_order__": {
+      "literal": [
+        "views.0"
+      ]
+    },
+    "views.0.type": {
+      "literal": "view"
+    }
+  },
+  "widgets/text": {
+    "aimms.widget.type": {
+      "literal": "text"
+    },
+    "contents": {
+      "literal": "<div>Select a province from the dropdown, or click on a province in the left to select it for the table with details below</div>"
+    },
+    "name": {
+      "literal": "text"
+    }
+  }
+}
